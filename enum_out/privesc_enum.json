@@ -1,0 +1,194 @@
+{
+  "system": {
+    "hostname": "Acer",
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "arch": "x86_64",
+    "os_release": "Debian GNU/Linux 12 (bookworm)"
+  },
+  "sections": {
+    "user": {
+      "uid": 1000,
+      "user": "jzz_jazz",
+      "groups": [
+        "adm",
+        "cdrom",
+        "sudo",
+        "dip",
+        "plugdev",
+        "jzz_jazz",
+        "docker"
+      ]
+    },
+    "sudo": {
+      "raw": "",
+      "parsed_flagged": []
+    },
+    "suid_sgid": {
+      "all_suid_sgid": [
+        "/usr/lib/openssh/ssh-keysign",
+        "/usr/lib/dbus-1.0/dbus-daemon-launch-helper",
+        "/usr/lib/x86_64-linux-gnu/utempter/utempter",
+        "/usr/bin/passwd",
+        "/usr/bin/sudo",
+        "/usr/bin/crontab",
+        "/usr/bin/plocate",
+        "/usr/bin/newgrp",
+        "/usr/bin/su",
+        "/usr/bin/chsh",
+        "/usr/bin/chage",
+        "/usr/bin/ssh-agent",
+        "/usr/bin/chfn",
+        "/usr/bin/umount",
+        "/usr/bin/gpasswd",
+        "/usr/bin/expiry",
+        "/usr/bin/ping",
+        "/usr/bin/mount",
+        "/usr/sbin/unix_chkpwd"
+      ],
+      "flagged": [
+        "/usr/bin/crontab",
+        "/usr/bin/umount",
+        "/usr/bin/mount"
+      ]
+    },
+    "capabilities": {
+      "raw": ""
+    },
+    "cron": {
+      "/etc/crontab": "# /etc/crontab: system-wide crontab\n# Unlike any other crontab you don't have to run the `crontab'\n# command to install the new version when you edit this file\n# and files in /etc/cron.d. These files also have username fields,\n# that none of the other crontabs do.\n\nSHELL=/bin/sh\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\n\n# Example of job definition:\n# .---------------- minute (0 - 59)\n# |  .------------- hour (0 - 23)\n# |  |  .---------- day of month (1 - 31)\n# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...\n# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat\n# |  |  |  |  |\n# *  *  *  *  * user-name command to be executed\n17 *\t* * *\troot\tcd / && run-parts --report /etc/cron.hourly\n25 6\t* * *\troot\ttest -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }\n47 6\t* * 7\troot\ttest -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }\n52 6\t1 * *\troot\ttest -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }\n#\n",
+      "/etc/cron.d/.placeholder": "# DO NOT EDIT OR REMOVE\n# This file is a simple placeholder to keep dpkg from removing this directory\n",
+      "/etc/cron.d/e2scrub_all": "30 3 * * 0 root test -e /run/systemd/system || SERVICE_MODE=1 /usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_all_cron\n10 3 * * * root test -e /run/systemd/system || SERVICE_MODE=1 /sbin/e2scrub_all -A -r\n"
+    },
+    "sensitive_files": {
+      "/etc/passwd": {
+        "world_writable": false,
+        "group_writable": false
+      },
+      "/etc/shadow": {
+        "world_writable": false,
+        "group_writable": false
+      },
+      "/etc/sudoers": {
+        "world_writable": false,
+        "group_writable": false
+      },
+      "/etc/sudoers.d": {
+        "world_writable": false,
+        "group_writable": false
+      }
+    },
+    "nfs_exports": {
+      "present": false
+    },
+    "ssh_keys": [],
+    "path_env": {
+      "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/d/Java/bin:/mnt/d/Java/bin:/mnt/c/php83:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Users/Acer/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.13:/mnt/c/Users/Acer/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.13/Scripts/:/mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313:/mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313/Scripts:/mnt/c/Program Files/PuTTY/:/mnt/c/Users/Acer/AppData/Local/Muse Hub/lib:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/xampp/php:/mnt/c/ProgramData/ComposerSetup/bin:/mnt/d/Git/cmd:/mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313/:/mnt/c/Windows/system32/config/systemprofile/AppData/Local/Muse Hub/lib:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/Acer/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/Acer/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Acer/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/Acer/AppData/Roaming/npm:/mnt/c/Users/Acer/AppData/Local/Muse Hub/lib:/mnt/c/Users/Acer/AppData/Roaming/Composer/vendor/bin:/mnt/c/Users/Acer/.local/bin:/mnt/c/Users/Acer/AppData/Local/Programs/Ollama",
+      "issues": [
+        "/mnt/d/Java/bin (world-writable)",
+        "/mnt/d/Java/bin (world-writable)",
+        "/mnt/c/php83 (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.13 (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313 (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313/Scripts (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Muse Hub/lib (world-writable)",
+        "/mnt/c/xampp/php (world-writable)",
+        "/mnt/d/Git/cmd (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313/ (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Programs/Python/Launcher/ (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Microsoft/WindowsApps (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Programs/Microsoft VS Code/bin (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Roaming/npm (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Muse Hub/lib (world-writable)",
+        "/mnt/c/Users/Acer/.local/bin (world-writable)",
+        "/mnt/c/Users/Acer/AppData/Local/Programs/Ollama (world-writable)"
+      ]
+    },
+    "env_vars": {},
+    "docker": {
+      "socket_exists": false,
+      "accessible": false
+    },
+    "listening_ports": {
+      "raw": "Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess\nudp   UNCONN 0      0          127.0.0.54:53        0.0.0.0:*          \nudp   UNCONN 0      0       127.0.0.53%lo:53        0.0.0.0:*          \nudp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*          \nudp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*          \nudp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*          \nudp   UNCONN 0      0               [::1]:323          [::]:*          \nudp   UNCONN 0      0               [::1]:323          [::]:*          \ntcp   LISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*          \ntcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          \ntcp   LISTEN 0      4096       127.0.0.54:53        0.0.0.0:*          \ntcp   LISTEN 0      32            0.0.0.0:21        0.0.0.0:*          \ntcp   LISTEN 0      511                 *:80              *:*"
+    },
+    "root_processes": {
+      "root_process_names": [
+        "Relay(272)",
+        "SessionLeader",
+        "agetty",
+        "apache2",
+        "cron",
+        "init",
+        "init-systemd(De",
+        "login",
+        "syslogd",
+        "systemd",
+        "systemd-journal",
+        "systemd-logind",
+        "systemd-udevd",
+        "vsftpd"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "category": "group_membership",
+      "detail": "User 'jzz_jazz' is in privilege-relevant group(s): adm, sudo, docker.",
+      "risk": "HIGH",
+      "reference": "https://gtfobins.github.io/ (search by group-relevant binary, e.g. docker)"
+    },
+    {
+      "category": "suid_sgid",
+      "detail": "SUID/SGID binary on watchlist: /usr/bin/crontab",
+      "risk": "HIGH",
+      "reference": "https://gtfobins.github.io/gtfobins/crontab/"
+    },
+    {
+      "category": "suid_sgid",
+      "detail": "SUID/SGID binary on watchlist: /usr/bin/umount",
+      "risk": "HIGH",
+      "reference": "https://gtfobins.github.io/gtfobins/umount/"
+    },
+    {
+      "category": "suid_sgid",
+      "detail": "SUID/SGID binary on watchlist: /usr/bin/mount",
+      "risk": "HIGH",
+      "reference": "https://gtfobins.github.io/gtfobins/mount/"
+    },
+    {
+      "category": "kernel_cve_watchlist",
+      "detail": "Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 5.8, the version range where CVE-2021-3493 (OverlayFS) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) \u2014 check searchsploit/the CVE database for your exact kernel build and distro patch level.",
+      "risk": "MEDIUM",
+      "reference": "https://nvd.nist.gov/vuln/search/results?query=CVE-2021-3493"
+    },
+    {
+      "category": "kernel_cve_watchlist",
+      "detail": "Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 5.1, the version range where CVE-2021-4034 (PwnKit / pkexec) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) \u2014 check searchsploit/the CVE database for your exact kernel build and distro patch level.",
+      "risk": "MEDIUM",
+      "reference": "https://nvd.nist.gov/vuln/search/results?query=CVE-2021-4034"
+    },
+    {
+      "category": "kernel_cve_watchlist",
+      "detail": "Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 4.4, the version range where CVE-2016-5195 (Dirty COW) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) \u2014 check searchsploit/the CVE database for your exact kernel build and distro patch level.",
+      "risk": "MEDIUM",
+      "reference": "https://nvd.nist.gov/vuln/search/results?query=CVE-2016-5195"
+    },
+    {
+      "category": "kernel_cve_watchlist",
+      "detail": "Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 4.10, the version range where CVE-2017-16995 (eBPF) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) \u2014 check searchsploit/the CVE database for your exact kernel build and distro patch level.",
+      "risk": "MEDIUM",
+      "reference": "https://nvd.nist.gov/vuln/search/results?query=CVE-2017-16995"
+    },
+    {
+      "category": "kernel_cve_watchlist",
+      "detail": "Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 5.10, the version range where CVE-2022-0847 (Dirty Pipe) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) \u2014 check searchsploit/the CVE database for your exact kernel build and distro patch level.",
+      "risk": "MEDIUM",
+      "reference": "https://nvd.nist.gov/vuln/search/results?query=CVE-2022-0847"
+    },
+    {
+      "category": "path_env",
+      "detail": "PATH contains writable/relative entries: /mnt/d/Java/bin (world-writable), /mnt/d/Java/bin (world-writable), /mnt/c/php83 (world-writable), /mnt/c/Users/Acer/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.13 (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313 (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313/Scripts (world-writable), /mnt/c/Users/Acer/AppData/Local/Muse Hub/lib (world-writable), /mnt/c/xampp/php (world-writable), /mnt/d/Git/cmd (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313/ (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Python/Launcher/ (world-writable), /mnt/c/Users/Acer/AppData/Local/Microsoft/WindowsApps (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Microsoft VS Code/bin (world-writable), /mnt/c/Users/Acer/AppData/Roaming/npm (world-writable), /mnt/c/Users/Acer/AppData/Local/Muse Hub/lib (world-writable), /mnt/c/Users/Acer/.local/bin (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Ollama (world-writable). If a root process or SUID binary relies on an unqualified command, this can be a PATH-hijack vector.",
+      "risk": "MEDIUM"
+    }
+  ]
+}

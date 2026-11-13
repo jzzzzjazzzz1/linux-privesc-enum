@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Privesc Enumeration Report</title>
+<style>
+  :root { --bg:#0f1216; --panel:#171b21; --border:#262b33; --text:#e6e9ee; --muted:#8a93a1; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,Segoe UI,sans-serif; margin:0; padding:32px; }
+  h1 { font-size:22px; margin-bottom:4px; }
+  .subtitle { color:var(--muted); margin-bottom:24px; font-size:13px; }
+  .banner { background:#1a2230; border:1px solid #2d4a6e; border-radius:8px; padding:12px 16px; font-size:13px; margin-bottom:24px; color:#9cc0e8; }
+  .summary { display:flex; gap:12px; margin-bottom:24px; }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:10px 16px; min-width:90px; }
+  .card .count { font-size:22px; font-weight:700; }
+  .card .label { font-size:11px; color:var(--muted); text-transform:uppercase; }
+  table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--border); border-radius:8px; overflow:hidden; margin-bottom:28px; }
+  th,td { padding:8px 10px; text-align:left; font-size:13px; border-bottom:1px solid var(--border); vertical-align:top; }
+  th { background:#1d222a; color:var(--muted); font-size:11px; text-transform:uppercase; }
+  .badge { padding:2px 8px; border-radius:4px; font-size:11px; font-weight:700; }
+  h2 { font-size:14px; color:var(--muted); text-transform:uppercase; margin:20px 0 8px; }
+  a { color:#4a9eff; }
+</style></head>
+<body>
+  <h1>Privilege Escalation Enumeration Report</h1>
+  <div class="subtitle">Generated 2026-11-13 11:25 UTC</div>
+  <div class="banner">Diagnostic only. Nothing here was exploited or modified. Every finding points you to GTFOBins/HackTricks/the CVE database by name — verify manually and only act within an engagement you're authorized for.</div>
+
+  <div class="summary">
+    <div class="card"><div class="count" style="color:#d1352b">0</div><div class="label">Critical</div></div>
+    <div class="card"><div class="count" style="color:#e0792a">4</div><div class="label">High</div></div>
+    <div class="card"><div class="count" style="color:#c7a311">6</div><div class="label">Medium</div></div>
+    <div class="card"><div class="count" style="color:#4a5565">0</div><div class="label">Low</div></div>
+  </div>
+
+  <h2>System</h2>
+  <table><tbody><tr><td>hostname</td><td>Acer</td></tr><tr><td>kernel</td><td>6.6.87.2-microsoft-standard-WSL2</td></tr><tr><td>arch</td><td>x86_64</td></tr><tr><td>os_release</td><td>Debian GNU/Linux 12 (bookworm)</td></tr></tbody></table>
+
+  <h2>Findings (10)</h2>
+  <table>
+    <thead><tr><th>Risk</th><th>Category</th><th>Detail</th><th></th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="badge" style="background:#e0792a22;color:#e0792a">HIGH</span></td>
+        <td>group_membership</td>
+        <td>User 'jzz_jazz' is in privilege-relevant group(s): adm, sudo, docker.</td>
+        <td><a href="https://gtfobins.github.io/ (search by group-relevant binary, e.g. docker)" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#e0792a22;color:#e0792a">HIGH</span></td>
+        <td>suid_sgid</td>
+        <td>SUID/SGID binary on watchlist: /usr/bin/crontab</td>
+        <td><a href="https://gtfobins.github.io/gtfobins/crontab/" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#e0792a22;color:#e0792a">HIGH</span></td>
+        <td>suid_sgid</td>
+        <td>SUID/SGID binary on watchlist: /usr/bin/umount</td>
+        <td><a href="https://gtfobins.github.io/gtfobins/umount/" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#e0792a22;color:#e0792a">HIGH</span></td>
+        <td>suid_sgid</td>
+        <td>SUID/SGID binary on watchlist: /usr/bin/mount</td>
+        <td><a href="https://gtfobins.github.io/gtfobins/mount/" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#c7a31122;color:#c7a311">MEDIUM</span></td>
+        <td>kernel_cve_watchlist</td>
+        <td>Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 5.8, the version range where CVE-2021-3493 (OverlayFS) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) — check searchsploit/the CVE database for your exact kernel build and distro patch level.</td>
+        <td><a href="https://nvd.nist.gov/vuln/search/results?query=CVE-2021-3493" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#c7a31122;color:#c7a311">MEDIUM</span></td>
+        <td>kernel_cve_watchlist</td>
+        <td>Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 5.1, the version range where CVE-2021-4034 (PwnKit / pkexec) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) — check searchsploit/the CVE database for your exact kernel build and distro patch level.</td>
+        <td><a href="https://nvd.nist.gov/vuln/search/results?query=CVE-2021-4034" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#c7a31122;color:#c7a311">MEDIUM</span></td>
+        <td>kernel_cve_watchlist</td>
+        <td>Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 4.4, the version range where CVE-2016-5195 (Dirty COW) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) — check searchsploit/the CVE database for your exact kernel build and distro patch level.</td>
+        <td><a href="https://nvd.nist.gov/vuln/search/results?query=CVE-2016-5195" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#c7a31122;color:#c7a311">MEDIUM</span></td>
+        <td>kernel_cve_watchlist</td>
+        <td>Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 4.10, the version range where CVE-2017-16995 (eBPF) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) — check searchsploit/the CVE database for your exact kernel build and distro patch level.</td>
+        <td><a href="https://nvd.nist.gov/vuln/search/results?query=CVE-2017-16995" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#c7a31122;color:#c7a311">MEDIUM</span></td>
+        <td>kernel_cve_watchlist</td>
+        <td>Kernel 6.6.87.2-microsoft-standard-WSL2 is >= 5.10, the version range where CVE-2022-0847 (Dirty Pipe) first applied. This does NOT confirm the box is vulnerable (distros backport fixes) — check searchsploit/the CVE database for your exact kernel build and distro patch level.</td>
+        <td><a href="https://nvd.nist.gov/vuln/search/results?query=CVE-2022-0847" target="_blank">lookup &rarr;</a></td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#c7a31122;color:#c7a311">MEDIUM</span></td>
+        <td>path_env</td>
+        <td>PATH contains writable/relative entries: /mnt/d/Java/bin (world-writable), /mnt/d/Java/bin (world-writable), /mnt/c/php83 (world-writable), /mnt/c/Users/Acer/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.13 (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313 (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313/Scripts (world-writable), /mnt/c/Users/Acer/AppData/Local/Muse Hub/lib (world-writable), /mnt/c/xampp/php (world-writable), /mnt/d/Git/cmd (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Python/Python313/ (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Python/Launcher/ (world-writable), /mnt/c/Users/Acer/AppData/Local/Microsoft/WindowsApps (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Microsoft VS Code/bin (world-writable), /mnt/c/Users/Acer/AppData/Roaming/npm (world-writable), /mnt/c/Users/Acer/AppData/Local/Muse Hub/lib (world-writable), /mnt/c/Users/Acer/.local/bin (world-writable), /mnt/c/Users/Acer/AppData/Local/Programs/Ollama (world-writable). If a root process or SUID binary relies on an unqualified command, this can be a PATH-hijack vector.</td>
+        <td></td>
+      </tr></tbody>
+  </table>
+</body></html>
